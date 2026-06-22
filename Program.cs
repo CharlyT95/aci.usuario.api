@@ -38,9 +38,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirAngular", builder =>
     {
-        builder.WithOrigins("http://localhost:4200") // Permite tu Angular local
-               .AllowAnyMethod()                     // Permite GET, POST, PUT, DELETE
-               .AllowAnyHeader();                    // Permite cualquier tipo de header
+        builder.WithOrigins("http://localhost:4200") 
+               .AllowAnyMethod()                     
+               .AllowAnyHeader();                    
     });
 });
 
@@ -60,6 +60,9 @@ builder.Services.AddScoped<RolService>();
 builder.Services.AddScoped<UsuarioRolService>();
 builder.Services.AddScoped<RolPermisoService>();
 builder.Services.AddScoped<UsuarioCredencialService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IParametroService, ParametroService>();
+builder.Services.AddScoped<IReinicioContraseniaService, ReinicioContraseniaService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<RegistroAuditoria>();
